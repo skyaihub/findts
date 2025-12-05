@@ -1,12 +1,21 @@
 import React, { useState } from 'react';
-
-import { Search, Sparkles, Globe, Rocket, Brain, Zap, ExternalLink } from 'lucide-react';
+import {
+  Search,
+  Sparkles,
+  Globe,
+  Rocket,
+  Brain,
+  Zap,
+  ExternalLink,
+  Pin,
+  PinOff
+} from 'lucide-react';
 
 const App = () => {
   const aiWebsites = [
     {
       name: 'DeepSeek',
-      url: 'https://deepseek.com',
+      url: 'https://deepseek.com  ',
       category: '大模型',
       description: '深度求索推出的AI大模型',
       icon: <Brain className="w-6 h-6" />,
@@ -14,31 +23,31 @@ const App = () => {
     },
     {
       name: '豆包',
-      url: 'https://www.doubao.com',
-      category: '大模型',  // 或 '聊天机器人'
+      url: 'https://www.doubao.com  ',
+      category: '大模型',
       description: '字节跳动推出的AI助手',
       icon: <Brain className="w-6 h-6" />,
-      color: 'from-orange-500 to-red-500'  // 字节跳动橙色系
+      color: 'from-orange-500 to-red-500'
     },
     {
       name: '通义千问',
-      url: 'https://tongyi.aliyun.com',
+      url: 'https://tongyi.aliyun.com  ',
       category: '大模型',
       description: '阿里云推出的AI大模型',
       icon: <Sparkles className="w-6 h-6" />,
-      color: 'from-blue-600 to-cyan-600'  // 阿里云蓝色系
+      color: 'from-blue-600 to-cyan-600'
     },
     {
       name: 'Kimi',
-      url: 'https://kimi.moonshot.cn',  // Kimi 的网址
-      category: '大模型',  // 或 '聊天机器人'，根据实际情况选择
+      url: 'https://kimi.moonshot.cn  ',
+      category: '大模型',
       description: '月之暗面推出的AI助手',
-      icon: <Brain className="w-6 h-6" />,  // 或使用其他图标
-      color: 'from-blue-500 to-indigo-500'  // 渐变色
+      icon: <Brain className="w-6 h-6" />,
+      color: 'from-blue-500 to-indigo-500'
     },
     {
       name: '元宝',
-      url: 'https://www.minimaxi.com',  // 或实际网址
+      url: 'https://www.minimaxi.com  ',
       category: '大模型',
       description: '面壁智能推出的AI助手',
       icon: <Zap className="w-6 h-6" />,
@@ -46,15 +55,15 @@ const App = () => {
     },
     {
       name: '文心一言',
-      url: 'https://yiyan.baidu.com',
+      url: 'https://yiyan.baidu.com  ',
       category: '大模型',
       description: '百度推出的AI大模型',
       icon: <Brain className="w-6 h-6" />,
-      color: 'from-blue-500 to-indigo-500'  // 百度蓝色系
+      color: 'from-blue-500 to-indigo-500'
     },
     {
       name: 'ChatGPT',
-      url: 'https://chat.openai.com',
+      url: 'https://chat.openai.com  ',
       category: '聊天机器人',
       description: 'OpenAI推出的对话式AI',
       icon: <Sparkles className="w-6 h-6" />,
@@ -62,7 +71,7 @@ const App = () => {
     },
     {
       name: 'Claude',
-      url: 'https://claude.ai',
+      url: 'https://claude.ai  ',
       category: '聊天机器人',
       description: 'Anthropic推出的AI助手',
       icon: <Zap className="w-6 h-6" />,
@@ -70,7 +79,7 @@ const App = () => {
     },
     {
       name: 'Gemini',
-      url: 'https://gemini.google.com',
+      url: 'https://gemini.google.com  ',
       category: '大模型',
       description: 'Google推出的AI助手',
       icon: <Globe className="w-6 h-6" />,
@@ -78,7 +87,7 @@ const App = () => {
     },
     {
       name: 'Midjourney',
-      url: 'https://www.midjourney.com',
+      url: 'https://www.midjourney.com  ',
       category: '图像生成',
       description: 'AI图像生成工具',
       icon: <Sparkles className="w-6 h-6" />,
@@ -86,7 +95,7 @@ const App = () => {
     },
     {
       name: 'DALL-E',
-      url: 'https://www.bing.com/images/create',
+      url: 'https://www.bing.com/images/create  ',
       category: '图像生成',
       description: 'OpenAI的图像生成模型',
       icon: <Rocket className="w-6 h-6" />,
@@ -94,7 +103,7 @@ const App = () => {
     },
     {
       name: 'Notion AI',
-      url: 'https://www.notion.so/product/ai',
+      url: 'https://www.notion.so/product/ai  ',
       category: '生产力工具',
       description: '集成在Notion中的AI功能',
       icon: <Brain className="w-6 h-6" />,
@@ -102,7 +111,7 @@ const App = () => {
     },
     {
       name: 'Perplexity',
-      url: 'https://www.perplexity.ai',
+      url: 'https://www.perplexity.ai  ',
       category: '搜索引擎',
       description: 'AI驱动的答案引擎',
       icon: <Zap className="w-6 h-6" />,
@@ -110,7 +119,7 @@ const App = () => {
     },
     {
       name: 'GitHub Copilot',
-      url: 'https://github.com/features/copilot',
+      url: 'https://github.com/features/copilot  ',
       category: '编程助手',
       description: 'AI编程助手',
       icon: <Rocket className="w-6 h-6" />,
@@ -118,7 +127,7 @@ const App = () => {
     },
     {
       name: 'Runway ML',
-      url: 'https://runwayml.com',
+      url: 'https://runwayml.com  ',
       category: '视频生成',
       description: 'AI视频编辑和生成平台',
       icon: <Globe className="w-6 h-6" />,
@@ -126,7 +135,7 @@ const App = () => {
     },
     {
       name: 'Stable Diffusion',
-      url: 'https://stability.ai',
+      url: 'https://stability.ai  ',
       category: '图像生成',
       description: '开源AI图像生成模型',
       icon: <Sparkles className="w-6 h-6" />,
@@ -134,7 +143,7 @@ const App = () => {
     },
     {
       name: 'Hugging Face',
-      url: 'https://huggingface.co',
+      url: 'https://huggingface.co  ',
       category: 'AI平台',
       description: '机器学习和AI模型平台',
       icon: <Brain className="w-6 h-6" />,
@@ -144,15 +153,32 @@ const App = () => {
 
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('全部');
+  const [pinnedItems, setPinnedItems] = useState(new Set());
 
   const categories = [...new Set(aiWebsites.map(site => site.category))];
 
-  const filteredWebsites = aiWebsites.filter(site => {
+  const togglePin = (name) => {
+    const newPinned = new Set(pinnedItems);
+    if (newPinned.has(name)) {
+      newPinned.delete(name);
+    } else {
+      newPinned.add(name);
+    }
+    setPinnedItems(newPinned);
+  };
+
+  // 先过滤（搜索 + 分类）
+  const filtered = aiWebsites.filter(site => {
     const matchesSearch = site.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
                           site.description.toLowerCase().includes(searchTerm.toLowerCase());
     const matchesCategory = selectedCategory === '全部' || site.category === selectedCategory;
     return matchesSearch && matchesCategory;
   });
+
+  // 分成置顶和非置顶，并合并
+  const pinned = filtered.filter(site => pinnedItems.has(site.name));
+  const unpinned = filtered.filter(site => !pinnedItems.has(site.name));
+  const displayedWebsites = [...pinned, ...unpinned];
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
@@ -170,7 +196,7 @@ const App = () => {
             <p className="text-xl text-slate-300 mb-8">
               一站式发现和访问市面上主流的AI网站和工具
             </p>
-            
+
             {/* Search Bar */}
             <div className="relative max-w-2xl mx-auto">
               <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-slate-400 w-5 h-5" />
@@ -218,14 +244,30 @@ const App = () => {
       {/* AI Websites Grid */}
       <main className="container mx-auto px-4 pb-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-          {filteredWebsites.map((site, index) => (
+          {displayedWebsites.map((site) => (
             <a
-              key={index}
-              href={site.url}
+              key={site.name}
+              href={site.url.trim()}
               target="_blank"
               rel="noopener noreferrer"
-              className="group block"
+              className="group block relative"
             >
+              {/* 图钉按钮 */}
+              <button
+                onClick={(e) => {
+                  e.preventDefault();
+                  togglePin(site.name);
+                }}
+                className="absolute top-2 right-2 p-1.5 rounded-full bg-black/30 backdrop-blur-sm text-white hover:bg-purple-600 transition-colors z-10"
+                aria-label={pinnedItems.has(site.name) ? '取消置顶' : '置顶'}
+              >
+                {pinnedItems.has(site.name) ? (
+                  <PinOff className="w-4 h-4" />
+                ) : (
+                  <Pin className="w-4 h-4" />
+                )}
+              </button>
+
               <div className="bg-white/10 backdrop-blur-sm rounded-2xl border border-white/20 hover:border-white/40 transition-all duration-300 hover:scale-105 hover:shadow-2xl overflow-hidden">
                 <div className={`h-2 bg-gradient-to-r ${site.color}`}></div>
                 <div className="p-6">
@@ -245,7 +287,6 @@ const App = () => {
                   <p className="text-slate-300 text-sm leading-relaxed">
                     {site.description}
                   </p>
-                  {/* 使用 ExternalLink 组件替换手动编写的 SVG */}
                   <div className="mt-4 flex items-center text-sm text-cyan-400 font-medium">
                     访问网站
                     <ExternalLink className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
@@ -256,7 +297,7 @@ const App = () => {
           ))}
         </div>
 
-        {filteredWebsites.length === 0 && (
+        {displayedWebsites.length === 0 && (
           <div className="text-center py-12">
             <div className="w-24 h-24 mx-auto mb-6 bg-white/10 rounded-full flex items-center justify-center">
               <Search className="w-12 h-12 text-slate-400" />
