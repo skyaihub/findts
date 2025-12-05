@@ -167,7 +167,6 @@ const App = () => {
     setPinnedItems(newPinned);
   };
 
-  // 先过滤（搜索 + 分类）
   const filtered = aiWebsites.filter(site => {
     const matchesSearch = site.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
                           site.description.toLowerCase().includes(searchTerm.toLowerCase());
@@ -175,7 +174,6 @@ const App = () => {
     return matchesSearch && matchesCategory;
   });
 
-  // 分成置顶和非置顶，并合并
   const pinned = filtered.filter(site => pinnedItems.has(site.name));
   const unpinned = filtered.filter(site => !pinnedItems.has(site.name));
   const displayedWebsites = [...pinned, ...unpinned];
@@ -308,12 +306,31 @@ const App = () => {
         )}
       </main>
 
-      {/* Footer */}
+      {/* Enhanced Footer (without GitHub) */}
       <footer className="border-t border-white/10 bg-black/20">
-        <div className="container mx-auto px-4 py-8 text-center">
-          <p className="text-slate-400">
-            © 2025 AI网站导航 | 一站式AI工具发现平台
-          </p>
+        <div className="container mx-auto px-4 py-8">
+          <div className="max-w-4xl mx-auto text-center">
+            <div className="flex flex-col md:flex-row justify-center items-center gap-4 mb-6 text-slate-300 flex-wrap">
+              <button
+                onClick={() => window.location.href = 'mailto:findthesmart@outlook.com'}
+                className="flex items-center gap-1 hover:text-white transition-colors"
+              >
+                联系我们
+              </button>
+              <span className="hidden md:inline">·</span>
+              <button
+                onClick={() => window.location.href = 'mailto:findthesmart@outlook.com?subject=加入我们'}
+                className="flex items-center gap-1 hover:text-white transition-colors"
+              >
+                加入我们
+              </button>
+              <span className="hidden md:inline">·</span>
+              <span className="text-sm">邮箱：findthesmart@outlook.com</span>
+            </div>
+            <p className="text-slate-400 text-sm">
+              © 2025 AI网站导航 | 一站式AI工具发现平台
+            </p>
+          </div>
         </div>
       </footer>
     </div>
